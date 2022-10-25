@@ -34,8 +34,8 @@ variable "helm_config" {
       dependency_update          = optional(bool, false)
       replace                    = optional(bool, false)
       postrender                 = optional(string, "")
-      set                        = optional(list)
-      set_sensitive              = optional(list)
+      set                        = optional(list(string))
+      set_sensitive              = optional(list(string))
     }
   )
 }
