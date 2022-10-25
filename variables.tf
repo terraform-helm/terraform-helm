@@ -6,7 +6,7 @@ variable "helm_config" {
       repository                 = optional(string)
       chart                      = string
       version                    = optional(string)
-      timeout                    = optional(string, 1200)
+      timeout                    = optional(string, 300)
       values                     = optional(list(string))
       create_namespace           = optional(bool, false)
       namespace                  = string
