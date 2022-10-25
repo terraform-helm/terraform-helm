@@ -7,7 +7,7 @@ variable "helm_config" {
       chart                      = string
       version                    = optional(string)
       timeout                    = optional(string, 1200)
-      values                     = optional(list)
+      values                     = optional(list(string))
       create_namespace           = optional(bool, false)
       namespace                  = string
       lint                       = optional(bool, false)
