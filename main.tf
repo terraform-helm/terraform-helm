@@ -31,8 +31,12 @@ resource "helm_release" "this" {
   dependency_update          = var.helm_config["dependency_update"]
   replace                    = var.helm_config["replace"]
 
-  postrender {
-    binary_path = var.helm_config["postrender"]
+  dynamic "postrender" {
+    iterator = each_item
+    for_each = var.helm_config["postrender"] != "" ? [var.helm_config["postrender"]] : []
+    content {
+      binary_path = var.helm_config["postrender"]
+    }
   }
 
   dynamic "set" {
