@@ -32,7 +32,7 @@ resource "helm_release" "this" {
   replace                    = var.helm_config["replace"]
 
   postrender {
-    binary_path = helm_config["postrender"]
+    binary_path = var.helm_config["postrender"]
   }
 
   dynamic "set" {
