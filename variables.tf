@@ -51,3 +51,9 @@ variable "set_sensitive_values" {
   type        = any
   default     = []
 }
+
+variable "create_namespace" {
+  description = "Create namespace ?"
+  type        = bool
+  default     = false
+}

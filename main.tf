@@ -60,4 +60,15 @@ resource "helm_release" "this" {
       type  = try(each_item.value.type, null)
     }
   }
+
+  depends_on = [
+    kubernetes_namespace.this
+  ]
+}
+
+resource "kubernetes_namespace" "this" {
+  count = var.create_namespace ? 1 : 0
+  metadata {
+    name = var.helm_config.namespace
+  }
 }
